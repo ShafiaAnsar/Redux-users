@@ -1,7 +1,7 @@
 const Home = () =>{
     return(
         <div>
-            <h2>ReactJS CRUD using REDUX</h2>
+            <h2>ReactJS CRUD using REDUX and JSON Server</h2>
         </div>
     )
 }
