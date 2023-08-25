@@ -5,10 +5,13 @@ import UserListing from './Component/UserListing'
 import Adduser from './Component/Adduser'
 import Updateuser from './Component/Updateuser'
 import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
+import { Store } from './Redux/Store';
 
 
 function App() {
   return (
+    <Provider store={Store}>
     <div className="App">
      < ToastContainer></ToastContainer>
   <BrowserRouter>
@@ -25,6 +28,7 @@ function App() {
   </Routes>
   </BrowserRouter>
     </div>
+    </Provider>
   );
 }
 
