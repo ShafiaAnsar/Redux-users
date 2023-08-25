@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter,Routes,Route ,Link} from 'react-router-dom';
 import Home from "./Component/Home"
 import UserListing from './Component/UserListing'
 import Adduser from './Component/Adduser'
@@ -12,6 +12,10 @@ function App() {
     <div className="App">
      < ToastContainer></ToastContainer>
   <BrowserRouter>
+  <div className='header'>
+    <Link to={'/'} className='link'>Home</Link>
+    <Link to={'/user'} className='link'>User</Link>
+  </div>
   <Routes>
     <Route path='/' element={<Home/>}  />
     <Route path='/user' element={<UserListing/>}  />
