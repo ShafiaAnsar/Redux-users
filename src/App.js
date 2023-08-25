@@ -13,7 +13,7 @@ function App() {
   return (
     <Provider store={Store}>
     <div className="App">
-     < ToastContainer></ToastContainer>
+     < ToastContainer className='toast-position' position='top-center'></ToastContainer>
   <BrowserRouter>
   <div className='header'>
     <Link to={'/'} className='link'>Home</Link>
