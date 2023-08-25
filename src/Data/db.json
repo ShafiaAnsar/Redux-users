@@ -6,6 +6,20 @@
             "role":"admin",
             "email":"admin@in.com",
             "phone":"83024850710"
+        },
+        {
+            "id":2,
+            "name":"Admin User2",
+            "role":"admin",
+            "email":"admin@in.com",
+            "phone":"83024850710"
+        },
+        {
+            "id":3,
+            "name":"Admin User3",
+            "role":"admin",
+            "email":"admin@in.com",
+            "phone":"83024850710"
         }
     ]
 }

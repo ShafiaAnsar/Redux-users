@@ -22,7 +22,7 @@ export const Reducer =(state=initialState,action)=>{
             }
         case GET_USER_LIST:
             return{
-                loading:true,
+                loading:false,
                 errmessage:"",
                 userlist:action.payload,
                 userobj:{}
