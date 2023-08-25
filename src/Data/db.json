@@ -20,6 +20,13 @@
       "role": "admin",
       "email": "admin@in.com",
       "phone": "83024850710"
+    },
+    {
+      "name": "Shafiya",
+      "email": "shafiaansar142@gmail.com",
+      "phone": "3103840248",
+      "role": "admin",
+      "id": 4
     }
   ]
 }
