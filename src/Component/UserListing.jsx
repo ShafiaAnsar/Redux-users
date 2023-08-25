@@ -20,7 +20,7 @@ if(window.confirm("Do you want to remove?")){
     props.user.errmessage ? <div><h2>{props.user.errmessage}</h2></div> :
 
     <div className="card">
-      <div className="card-header">
+      <div className="card-header" style={{textAlign:'right'}}>
       <Link to={'/user/add'} className="btn btn-success">Add [+]</Link>
       </div>
       <div className="card-body">
@@ -46,7 +46,7 @@ if(window.confirm("Do you want to remove?")){
                     <td>{item.phone}</td>
                     <td>{item.role}</td>
                     <td>
-                      <Link to={'/user/edit'+item.id} className="btn btn-primary m-2"> Edit </Link> 
+                      <Link to={'/user/edit/'+item.id} className="btn btn-primary m-2"> Edit </Link> 
                        <button onClick={()=>{handledelete(item.id)}} className="btn btn-danger">Delete</button>
                     </td>
                 </tr>
