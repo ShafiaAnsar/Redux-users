@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST ,Add_USER,UPDATE_USER} from "./ActionType"
+import { DELETE_USER, FAIL_REQUEST, GET_USER_LIST, MAKE_REQUEST ,Add_USER,UPDATE_USER,GET_USER_OBJ} from "./ActionType"
 import { toast } from "react-toastify"
 
 export const makeRequest = ()=>{
@@ -78,15 +78,29 @@ export const AddUser=(data)=>{
      
     }
 }
-export const UpdateUser=(data)=>{
+export const FunctionUpdateUser=(data,code)=>{
     return (dispatch)=>{
       dispatch(makeRequest());
-        axios.post('http://localhost:8000/user',data).then(res=>{
-            dispatch(addUser());
-            toast.success("User Added Successfully")
+        axios.put('http://localhost:8000/user/'+code,data).then(res=>{
+            dispatch(updateUser());
+            toast.success("User Updated Successfully")
           }).catch(err=>{
             dispatch(failRequest(err.message))
           })
      
     }
+}
+export const FetchUserObj=(code)=>{
+  return (dispatch)=>{
+    dispatch(makeRequest());
+    //setTimeout(() => {
+      axios.get('http://localhost:8000/user/'+code).then(res=>{
+          const userlist=res.data;
+          dispatch(getUserobj(userlist));
+        }).catch(err=>{
+          dispatch(failRequest(err.message))
+        })
+   // }, 2000);
+   
+  }
 }

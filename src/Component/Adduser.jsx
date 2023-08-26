@@ -44,25 +44,25 @@ const Adduser = () => {
           <div className="col-lg-12">
             <div className="form-group">
               <label>Name</label>
-              <input className="form-control" name="name" value={inputValue.name} onChange={handleChange}></input>
+              <input className="form-control" name="name" required value={inputValue.name} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Email</label>
-              <input className="form-control" name="email" value={inputValue.email} onChange={handleChange}></input>
+              <input className="form-control" required name="email" value={inputValue.email} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Phone</label>
-              <input className="form-control" name="phone"  value={inputValue.phone} onChange={handleChange}></input>
+              <input className="form-control" required name="phone"  value={inputValue.phone} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Role</label>
-              <select className="form-control" name="role" value={inputValue.role} onChange={handleChange}>
+              <select className="form-control" requiredq name="role" value={inputValue.role} onChange={handleChange}>
                 <option value="admin">Admin</option>
                 <option value="staff">Staff</option>
               </select>

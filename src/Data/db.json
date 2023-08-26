@@ -2,24 +2,24 @@
   "user": [
     {
       "id": 1,
-      "name": "Admin User 1",
-      "role": "admin",
-      "email": "admin@in.com",
-      "phone": "83024850710"
+      "name": "Arslan",
+      "email": "arslan@in.com",
+      "phone": "83024850710",
+      "role": "admin"
     },
     {
       "id": 2,
-      "name": "Admin User 2",
-      "role": "admin",
-      "email": "admin@in.com",
-      "phone": "83024850710"
+      "name": "Asad",
+      "email": "asad@in.com",
+      "phone": "83024850710",
+      "role": "staff"
     },
     {
       "id": 3,
-      "name": "Admin User 3",
-      "role": "admin",
-      "email": "admin@in.com",
-      "phone": "83024850710"
+      "name": "Afia",
+      "email": "afia@in.com",
+      "phone": "83024850710",
+      "role": "staff"
     },
     {
       "name": "Shafiya",
@@ -27,6 +27,13 @@
       "phone": "3103840248",
       "role": "admin",
       "id": 4
+    },
+    {
+      "name": "Ahsan",
+      "email": "ahsan@in.com",
+      "phone": "8793487189",
+      "role": "admin",
+      "id": 5
     }
   ]
 }

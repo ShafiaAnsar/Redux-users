@@ -1,16 +1,19 @@
-import { useState } from "react"
-import {useDispatch} from "react-redux"
-import { useNavigate,Link } from "react-router-dom"
-const Updateuser = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const [inputValue,setInputValue] = useState({
-    id:0,
-    name:'',
-    email:'',
-    phone:'',
-    role:'admin'
-  })
+import { useEffect, useState } from "react"
+import {useDispatch, useSelector} from "react-redux"
+import { useNavigate,Link, useParams } from "react-router-dom"
+import { FetchUserObj, FunctionUpdateUser } from "../Redux/Action"
+const UpdateUser = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { code } = useParams();
+  const userobj = useSelector((state) => state.user.userobj);
+  const [inputValue, setInputValue] = useState({
+    id: 0,
+    name: '',
+    email: '',
+    phone: '',
+    role: 'admin'
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,18 +22,36 @@ const Updateuser = () => {
       [name]: value
     }));
   };
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    const userobj ={
-      id:id,
-      name:name,
-      email:email,
-      phone:phone,
-      role:role}
-      dispatch(AddUser(userobj))
-      navigate('/user')
-      console.log(userobj)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userobj = {  
+      id: inputValue.id,
+      name: inputValue.name,
+      email: inputValue.email,
+      phone: inputValue.phone,
+      role: inputValue.role};
+    dispatch(FunctionUpdateUser(userobj,inputValue.id));
+    navigate('/user');
+}
+  useEffect(() => {
+    dispatch(FetchUserObj(code));
+  }, [dispatch, code]);
+
+  useEffect(() => {
+    if (userobj) {
+      setInputValue((prevValues) => ({
+        ...prevValues,
+        id: userobj.id,
+        name: userobj.name,
+        email: userobj.email,
+        phone: userobj.phone,
+        role: userobj.role
+      }));
+    }
+  }, [userobj]);
+  
+
+
   const {id, name, email, phone, role } = inputValue;
   
   return (
@@ -42,28 +63,34 @@ const Updateuser = () => {
       </div>
       <div className="card-body">
         <div className="row">
+        <div className="col-lg-12">
+            <div className="form-group">
+              <label>Id</label>
+              <input className="form-control" name="id" disabled ="disabled" value={inputValue.id || ''}></input>
+            </div>
+          </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Name</label>
-              <input className="form-control" name="name" value={inputValue.name} onChange={handleChange}></input>
+              <input className="form-control" name="name" value={inputValue.name|| ''} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Email</label>
-              <input className="form-control" name="email" value={inputValue.email} onChange={handleChange}></input>
+              <input className="form-control" name="email" value={inputValue.email|| ''} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Phone</label>
-              <input className="form-control" name="phone"  value={inputValue.phone} onChange={handleChange}></input>
+              <input className="form-control" name="phone"  value={inputValue.phone|| ''} onChange={handleChange}></input>
             </div>
           </div>
           <div className="col-lg-12">
             <div className="form-group">
               <label>Role</label>
-              <select className="form-control" name="role" value={inputValue.role} onChange={handleChange}>
+              <select className="form-control" name="role" value={inputValue.role|| ''} onChange={handleChange}>
                 <option value="admin">Admin</option>
                 <option value="staff">Staff</option>
               </select>
@@ -81,4 +108,4 @@ const Updateuser = () => {
   )
 }
 
-export default Updateuser
+export default UpdateUser
